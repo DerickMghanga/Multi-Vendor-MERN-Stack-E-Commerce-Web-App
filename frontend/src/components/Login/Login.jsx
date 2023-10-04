@@ -7,7 +7,7 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   return (
     <div className='min-h-screen flex flex-col justify-center items-center py-10 sm:px-6 lg:px-8'>
@@ -82,7 +82,7 @@ const Login = () => {
 
             <div className='flex justify-center mt-4'>
               <button type='submit' 
-                className='group relative bg-blue-500 cursor-pointer h-[35px] px-3 rounded-md border border-transparent text-sm'
+                className='group relative bg-blue-500 font-bold cursor-pointer h-[35px] w-full rounded-md border border-transparent text-sm'
               >
                 Login
               </button>
