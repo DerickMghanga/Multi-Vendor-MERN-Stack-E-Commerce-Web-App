@@ -3,6 +3,9 @@ import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai';
 import {RxAvatar} from 'react-icons/rx';
 import styles from '../../styles/styles';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import { server } from '../../server';
+
 
 const Signup = () => {
 
@@ -12,14 +15,32 @@ const Signup = () => {
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
 
-    const handleSubmit = () => {
-
-    }
 
     //upload image file for avatar
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
         setAvatar(file);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const config = {headers: {"Content-Type":"multipart/form-data"}};
+
+        // form data
+        const newForm = new FormData();
+
+        newForm.append('file', avatar)
+        newForm.append('name', name);
+        newForm.append('email', email);
+        newForm.append('password', password);
+
+        const res = await axios.post(`${server}/user/create-user`, newForm, config);
+        console.log(res.data);
+            // .then(console.log(res))
+            // .catch((err) => {
+            //     console.log(err);
+            // })
+    
     }
 
     return (
@@ -33,13 +54,13 @@ const Signup = () => {
 
         <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
             <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor='name' className='block text-sm font-medium text-gray-700'>
                             Full Name
                         </label>
                         <div className="mt-1">
-                            <input type='text' name='text' autoComplete='name' required
+                            <input type='text' id='name' name='text' autoComplete='name' required
                             value={name} onChange={(e)=>setName(e.target.value)}
                             placeholder='Full Name'
                             className='appearance-none w-full border border-gray-300 rounded-md p-1 shadow-sm focus:outline-none focus:border-blue-500'
@@ -52,7 +73,7 @@ const Signup = () => {
                             Email Address
                         </label>
                         <div className="mt-1">
-                            <input type='email' name='email' autoComplete='email' required
+                            <input type='email' id='email' name='email' autoComplete='email' required
                             value={email} onChange={(e)=>setEmail(e.target.value)}
                             placeholder='Email'
                             className='appearance-none w-full border border-gray-300 rounded-md p-1 shadow-sm focus:outline-none focus:border-blue-500'
@@ -66,6 +87,7 @@ const Signup = () => {
                         </label>
                         <div className="mt-1 relative">
                             <input type={visible ? 'text' : 'password'} name='password' autoComplete='current-password' required
+                            id='password'
                             value={password} onChange={(e)=>setPassword(e.target.value)}
                             placeholder='Password'
                             className='appearance-none w-full border border-gray-300 rounded-md p-1 shadow-sm focus:outline-none focus:border-blue-500'
