@@ -1,5 +1,5 @@
 const express = require('express');
-const ErrorHandler = require('./utils/ErrorHandler');
+const ErrorHandler = require('./middleware/error');
 const app = express();
 const cookiesParser = require('cookie-parser');
 const bodyParser = require('body-parser');  //for POST requests(Google)

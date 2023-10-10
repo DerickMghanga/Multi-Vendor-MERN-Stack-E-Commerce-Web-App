@@ -39,6 +39,7 @@ const Signup = () => {
         await axios.post(`${server}/user/create-user`, newForm, config)
             .then((res) => {
                 if(res.data.success === true) {
+                    alert(res.data.message);
                     navigate('/');    //redirect after successfull sign-up
                 }
             })

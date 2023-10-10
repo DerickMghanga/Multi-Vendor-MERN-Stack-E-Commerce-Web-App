@@ -8,6 +8,8 @@ const User =  require('../models/User');
 const {upload} = require('../multer');
 const ErrorHandler = require('../utils/ErrorHandler');
 const sendMail = require('../utils/sendMail');
+const catchAsyncErrors = require('../middleware/catchAsyncErrors');
+const sendToken = require('../utils/jwtToken');
 
 
 router.post('/create-user', upload.single("file"), async (req,res,next) => {
@@ -25,8 +27,6 @@ router.post('/create-user', upload.single("file"), async (req,res,next) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json({message: "Error deleting the file"});
-                } else {
-                    res.json({message: "File deleted successfully"});
                 }
             });
 
@@ -64,13 +64,6 @@ router.post('/create-user', upload.single("file"), async (req,res,next) => {
             return next(new ErrorHandler(error.message, 500));
         }
 
-        // const newUser = await User.create(user);
-        // console.log(newUser);
-
-        // res.status(201).json({
-        //     success: true,
-        //     newUser,
-        // })
     } catch (error) {
             return next(new ErrorHandler(error.message, 400));
     }
@@ -80,5 +73,44 @@ router.post('/create-user', upload.single("file"), async (req,res,next) => {
 const createActivationToken = (user) => {
     return jwt.sign(user, process.env.ACTIVATION_SECRET, { expiresIn:'5min' });
 }
+
+
+//activate user from email sent with token
+router.post('/activation', catchAsyncErrors(async(req, res, next) => {
+    try {
+        // console.log(req.body);
+        const {token} = req.body;
+
+        const newUser = jwt.verify(token, process.env.ACTIVATION_SECRET);
+
+        if(!newUser) {
+            return next(new ErrorHandler("Invalid token", 400));
+        }
+
+        const {name, email, password, avatar} = newUser;
+
+        const user = await User.findOne({email});
+
+        if(user) {
+            return next(new ErrorHandler("User already exists", 400));
+        }
+
+        const createdUser = await User.create({
+            name,
+            email,
+            avatar,
+            password,
+        });
+
+        // res.status(201).json({
+        //     success: true,
+        //     message: "User created successfully!"
+        // })
+        sendToken(createdUser, 201, res);
+
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 500));
+    }
+}))
 
 module.exports = router;
