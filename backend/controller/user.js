@@ -10,6 +10,7 @@ const ErrorHandler = require('../utils/ErrorHandler');
 const sendMail = require('../utils/sendMail');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
+const { isAuthenticated } = require('../middleware/auth');   //check cookies in the token
 
 
 router.post('/create-user', upload.single("file"), async (req,res,next) => {
@@ -71,7 +72,7 @@ router.post('/create-user', upload.single("file"), async (req,res,next) => {
 
 //create Activation Token
 const createActivationToken = (user) => {
-    return jwt.sign(user, process.env.ACTIVATION_SECRET, { expiresIn:'5min' });
+    return jwt.sign(user, process.env.ACTIVATION_SECRET, { expiresIn:'10min' });
 }
 
 
@@ -107,6 +108,56 @@ router.post('/activation', catchAsyncErrors(async(req, res, next) => {
         //     message: "User created successfully!"
         // })
         sendToken(createdUser, 201, res);
+
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 500));
+    }
+}))
+
+
+//Login user
+router.post("/login-user", catchAsyncErrors(async(req, res, next) => {
+    try {
+        const {email, password} = req.body;
+
+        if(!email || !password) {
+            return next(new ErrorHandler("Please provide all the fields!", 400));
+        }
+
+        const user = await User.findOne({email}).select("+password");  //forcefully include the password
+
+        if(!user) {
+            return next(new ErrorHandler("User does not exist!", 400))
+        }
+
+        const isPasswordValid = await user.comparePassword(password);  //from userSchema methods '../models/User.js'
+
+        if(!isPasswordValid) {
+            return next(new ErrorHandler("Please provide the correct credentials", 400));
+        }
+
+        sendToken(user, 201, res);  //create token sent as cookie to client
+
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 500));
+    }
+}))
+
+
+//load user(authorisation to access hoemapage unless you login)
+router.get("/getuser", isAuthenticated, catchAsyncErrors(async(req, res, next) => {
+    try {
+        // console.log(req.user);
+        const user = await User.findById(req.user._id);  //'req.user' from isAuthenticated
+
+        if(!user) {
+            return next(new ErrorHandler("User does not exist!", 400));
+        }
+
+        res.status(200).json({
+            success: true,
+            user,
+        });
 
     } catch (error) {
         return next(new ErrorHandler(error.message, 500));

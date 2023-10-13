@@ -5,7 +5,10 @@ const cookiesParser = require('cookie-parser');
 const bodyParser = require('body-parser');  //for POST requests(Google)
 const cors = require('cors'); // authorisation of requests(client-server);
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",   //front-end
+    credentials: true,
+}));
 app.use(express.json());
 app.use(cookiesParser());
 app.use("/", express.static("uploads")); // public access to upload folder with images

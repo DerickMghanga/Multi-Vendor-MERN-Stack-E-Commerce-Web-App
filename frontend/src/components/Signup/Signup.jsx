@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai';
 import {RxAvatar} from 'react-icons/rx';
 import styles from '../../styles/styles';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import { server } from '../../server';
+import { toast } from 'react-toastify';
 
 
 const Signup = () => {
@@ -14,8 +15,6 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
-
-    const navigate = useNavigate();
 
 
     //upload image file for avatar
@@ -39,14 +38,17 @@ const Signup = () => {
         await axios.post(`${server}/user/create-user`, newForm, config)
             .then((res) => {
                 if(res.data.success === true) {
-                    alert(res.data.message);
-                    navigate('/');    //redirect after successfull sign-up
+                    toast.success(res.data.message);
+                    setName("");
+                    setEmail("");
+                    setPassword("");
+                    setAvatar(null);
                 }
             })
             .catch((err) => {
                 console.log(err);
-        })
-    
+                toast.error(err.response.data.message);
+            })
     }
 
     return (
@@ -54,7 +56,7 @@ const Signup = () => {
 
         <div className='sm:mx-auto sm:w-full sm:max-w-md'>
             <h2 className='mt-4 text-center text-xl font-bold text-gray-900'>
-            Register as a new User
+                Register as a new User
             </h2>
         </div>
 

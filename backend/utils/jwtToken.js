@@ -1,6 +1,6 @@
 //send response with cookies
 const sendToken = (user, statusCode, res) => {
-    const token = user.getJwtToken();
+    const token = user.getJwtToken();   //from userSchema methods '../models/User.js'
 
     //options for cookies
     const options = {

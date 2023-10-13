@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter your password"],
         minLength: [4, "Password should be greater than 4 characters"],
-        select: false,
+        select: false,   //not accesible when trying to retrieve info from DB
     },
     phoneNumber: {
         type: Number,
