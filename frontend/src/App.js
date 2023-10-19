@@ -1,5 +1,5 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import {SignUpPage,LoginPage,ActivationPage} from './Routes.js';
+import {HomePage, SignUpPage,LoginPage,ActivationPage} from './Routes.js';
 import { ToastContainer} from 'react-toastify';  //customised alert
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
@@ -16,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/activation/:activation_url' element={<ActivationPage />} />

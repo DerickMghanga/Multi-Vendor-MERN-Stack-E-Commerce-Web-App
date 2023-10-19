@@ -1,0 +1,22 @@
+import React from 'react'
+import { navItems } from '../../static/data'
+import styles from '../../styles/styles'
+import { Link } from 'react-router-dom'
+
+const Navbar = ({active}) => {
+  return (
+    <div className={`${styles.normalFlex}`}>
+        {
+            navItems &&  navItems.map((i, index) => (
+                <div className='flex'>
+                    <Link to={i.url} className={`${active === index + 1 ? "text-green-900 font-extrabold" : "text-[#fff]"} px-6 cursor-pointer`}>
+                        {i.title}
+                    </Link>
+                </div>
+            ))
+        }
+    </div>
+  )
+}
+
+export default Navbar
