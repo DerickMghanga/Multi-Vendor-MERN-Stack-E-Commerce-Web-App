@@ -7,6 +7,7 @@
 body {
   margin: 0;
   @apply font-roboto;
+  @apply bg-gray-200;
 }
 
 code {
@@ -14,3 +15,8 @@ code {
     monospace;
 }
 
+.default-bg-img {
+  background-image: url("../public/home.jpg");
+  background-size: cover;
+  background-position: center;
+}

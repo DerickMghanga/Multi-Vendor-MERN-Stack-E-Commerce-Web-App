@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styles from '../../styles/styles'
 import { Link } from 'react-router-dom'
 import {productData, categoriesData} from '../../static/data'
-import { AiOutlineHeart, AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineHeart, AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/ai'
 import {IoIosArrowForward, IoIosArrowDown, IoIosArrowUp} from 'react-icons/io'
 import {BiMenuAltLeft} from 'react-icons/bi'
+import {CgProfile} from 'react-icons/cg'
 import DropDown from './DropDown'
 import Navbar from './Navbar'
 
@@ -29,7 +30,7 @@ const Header = ({activeHeading}) => {
 
     //active navBar after scroll
     window.addEventListener("scroll", () => {
-        if(window.screenY > 70) {
+        if(window.scrollY > 70) {
             setActive(true);
         } else {
             setActive(false);
@@ -100,7 +101,9 @@ const Header = ({activeHeading}) => {
                     <div className='relative h-[60px] mt-[10px] w-[270px] hidden lg:block'>
                         <BiMenuAltLeft size={25} className='absolute top-3 left-2' />
 
-                        <button className='h-full w-full flex justify-between items-center pl-14 bg-white text-md select-none rounded-t-lg'>
+                        <button className='h-full w-full flex justify-between items-center pl-14 bg-white text-md select-none rounded-t-lg'
+                            onClick={() => setDropDown(!dropDown)}
+                        >
                             All Categories
                         </button>
 
@@ -128,16 +131,38 @@ const Header = ({activeHeading}) => {
                         <Navbar active={activeHeading} />
                 </div>
 
-                <div>
+                <div className='flex gap-1'>
                     <div className={`${styles.normalFlex}`}>
                         <div className='relative cursor-pointer mr-[15px]'>
-                            <AiOutlineHeart size={26}
-                                className=''
+                            <AiOutlineHeart size={28}
+                                className='text-white'
                             />
 
-                            <span className='absolute text-[12px] text-center leading-tight right-0 -top-0.5 rounded-full bg-white w-4 h-4 p-0 m-0'>
+                            <span className='absolute text-[12px] text-center font-bold leading-tight right-0 -top-0.5 rounded-full bg-sky-200 w-4 h-4 p-0 m-0'>
                                 0
                             </span>
+                        </div>
+                    </div>
+
+                    <div className={`${styles.normalFlex}`}>
+                        <div className='relative cursor-pointer mr-[15px]'>
+                            <AiOutlineShoppingCart size={28}
+                                className='text-white'
+                            />
+
+                            <span className='absolute text-[12px] text-center font-bold leading-tight right-0 -top-0.5 rounded-full bg-sky-200 w-4 h-4 p-0 m-0'>
+                                1
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className={`${styles.normalFlex}`}>
+                        <div className='relative cursor-pointer mr-[15px]'>
+                            <Link to="/login">
+                                <CgProfile size={28}
+                                    className='text-black'
+                                />
+                            </Link>
                         </div>
                     </div>
                 </div> 

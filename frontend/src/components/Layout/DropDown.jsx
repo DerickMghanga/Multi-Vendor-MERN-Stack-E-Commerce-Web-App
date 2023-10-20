@@ -12,10 +12,10 @@ const DropDown = ({categoriesData, setDropDown}) => {
         window.location.reload(); // reload current URL, like Refresh button.
     }
   return (
-    <div className='pb-4 w-[270px] bg-gray-200 absolute z-30 rounded-b-md shadow-sm'>
+    <div className='pb-4 w-[270px] bg-white absolute z-30 rounded-b-md shadow-sm'>
         {
            categoriesData && categoriesData.map((i, index) => (
-                <div key={index} className={`${styles.normalFlex}`}
+                <div key={i.id} className={`${styles.normalFlex}`}
                     onClick={() => handleSubmit(i)}
                 >
                     <img src={i.image_Url} alt="category-pic"

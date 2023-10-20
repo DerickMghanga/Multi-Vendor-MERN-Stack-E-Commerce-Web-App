@@ -8,7 +8,7 @@ const Navbar = ({active}) => {
     <div className={`${styles.normalFlex}`}>
         {
             navItems &&  navItems.map((i, index) => (
-                <div className='flex'>
+                <div className='flex' key={index}>
                     <Link to={i.url} className={`${active === index + 1 ? "text-green-900 font-extrabold" : "text-[#fff]"} px-6 cursor-pointer`}>
                         {i.title}
                     </Link>

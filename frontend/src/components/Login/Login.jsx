@@ -103,7 +103,7 @@ const Login = () => {
 
             <div className='flex justify-center mt-4'>
               <button type='submit' 
-                className='group relative bg-blue-500 font-bold cursor-pointer h-[35px] w-full rounded-md border border-transparent text-sm'
+                className='group relative bg-lime-600 font-bold cursor-pointer h-[35px] w-full rounded-md border border-transparent text-sm'
               >
                 Login
               </button>
