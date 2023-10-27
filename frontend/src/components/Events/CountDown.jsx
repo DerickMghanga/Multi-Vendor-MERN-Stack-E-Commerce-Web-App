@@ -10,7 +10,7 @@ const CountDown = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    });
+    });   //Deepndency removed in the useEffect hook
 
 
     function calculateTimeLeft() {
@@ -30,14 +30,14 @@ const CountDown = () => {
       return timeleft;
     }
 
-    const timerComponents = Object.keys(timeLeft).map((value, index) => {
-      if (!timeLeft[value]) {   //if timeleft is zero
+    const timerComponents = Object.keys(timeLeft).map((key, index) => {
+      if (!timeLeft[key]) {   //if timeleft is zero
         return null;
 
       } else {
         return (
           <span className='text-[25px] text-[#475ad2]' key={index}>
-            {timeLeft[value]} {value} {" "}  
+            {timeLeft[key]} {key} {" "}  
           </span>
         )
       }

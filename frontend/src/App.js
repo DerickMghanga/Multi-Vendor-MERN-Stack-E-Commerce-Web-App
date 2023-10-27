@@ -1,5 +1,5 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import {HomePage, SignUpPage,LoginPage,ActivationPage} from './Routes.js';
+import {HomePage, SignUpPage, LoginPage,ActivationPage, ProductsPage, BestSellingPage, EventsPage} from './Routes.js';
 import { ToastContainer} from 'react-toastify';  //customised alert
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
@@ -20,6 +20,9 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/activation/:activation_url' element={<ActivationPage />} />
+        <Route path='/products' element={<ProductsPage/>} />
+        <Route path='/best-selling' element={<BestSellingPage/>} />
+        <Route path='/events' element={<EventsPage/>} />
       </Routes>
 
       <ToastContainer

@@ -3,6 +3,9 @@
 @import 'tailwindcss/utilities';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -23,4 +26,14 @@ code {
 
 .btn-primary {
   @apply w-[125px] h-[40px] bg-gray-500 my-2 flex items-center justify-center rounded-xl cursor-pointer;
+}
+
+
+.sponsor-image {
+  width: 150px;
+  object-fit: contain;
+}
+
+.bg-color {
+  @apply bg-lime-600;
 }

@@ -9,7 +9,7 @@ const DropDown = ({categoriesData, setDropDown}) => {
         navigate(`/products?category=${i.title}`)
 
         setDropDown(false);
-        window.location.reload(); // reload current URL, like Refresh button.
+        window.location.reload(); // reload new selected URL with category after selcting the category
     }
   return (
     <div className='pb-4 w-[270px] bg-white absolute z-30 rounded-b-md shadow-sm'>
