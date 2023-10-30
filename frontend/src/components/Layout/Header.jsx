@@ -8,8 +8,14 @@ import {BiMenuAltLeft} from 'react-icons/bi'
 import {CgProfile} from 'react-icons/cg'
 import DropDown from './DropDown'
 import Navbar from './Navbar'
+import {useSelector} from 'react-redux'
+import { backend_url } from '../../server'
+
 
 const Header = ({activeHeading}) => {
+
+    const {isAuthenticated, user } = useSelector((state) => state.user);
+    // console.log({user});
 
     const [searchTerm, setSearchTerm] = useState("");
     const [searchData, setSearchData] = useState("");
@@ -117,7 +123,7 @@ const Header = ({activeHeading}) => {
                                 <DropDown
                                     categoriesData = {categoriesData}
                                     setDropDown = {setDropDown}
-                                 />
+                                />
                             ) : null
                         }
 
@@ -157,11 +163,20 @@ const Header = ({activeHeading}) => {
 
                     <div className={`${styles.normalFlex}`}>
                         <div className='relative cursor-pointer mr-[15px]'>
-                            <Link to="/login">
-                                <CgProfile size={28}
-                                    className='text-black'
+
+                            {isAuthenticated ? (
+                                <Link to="/profile">
+                                <img src={`${backend_url}${user.avatar}`} alt="avatar" 
+                                    className='w-[40px] h-[40px] rounded-full border border-primary-green'
                                 />
-                            </Link>
+                                </Link>
+                            ) : (
+                                <Link to="/login">
+                                    <CgProfile size={28}
+                                        className='text-black'
+                                    />
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div> 

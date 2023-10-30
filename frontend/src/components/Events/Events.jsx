@@ -1,7 +1,5 @@
 import React from 'react'
 import styles from '../../styles/styles'
-import { productData } from '../../static/data'
-import ProductCard from '../Root/ProductCard/ProductCard'
 import EventCard from './EventCard.jsx';
 
 const Events = () => {
