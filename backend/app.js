@@ -11,7 +11,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(cookiesParser());
-app.use("/", express.static("uploads")); // public access to upload folder with images
+app.use("/", express.static("uploads")); // enable public access to upload folder with images
 app.use(bodyParser.urlencoded({extended: true}));
 
 //config Environment variables
