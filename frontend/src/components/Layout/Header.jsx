@@ -10,6 +10,7 @@ import DropDown from './DropDown'
 import Navbar from './Navbar'
 import {useSelector} from 'react-redux'
 import { backend_url } from '../../server'
+import Cart from '../Cart/Cart.jsx'
 
 
 const Header = ({activeHeading}) => {
@@ -21,6 +22,8 @@ const Header = ({activeHeading}) => {
     const [searchData, setSearchData] = useState("");
     const [active, setActive] = useState(false);
     const [dropDown ,setDropDown] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
+    const [openWishList, setOpenWishList] = useState(false);
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -149,7 +152,9 @@ const Header = ({activeHeading}) => {
                         </div>
                     </div>
 
-                    <div className={`${styles.normalFlex}`}>
+                    <div className={`${styles.normalFlex}`}
+                        onClick={()=> setOpenCart(true)}
+                    >
                         <div className='relative cursor-pointer mr-[15px]'>
                             <AiOutlineShoppingCart size={28}
                                 className='text-white'
@@ -166,7 +171,8 @@ const Header = ({activeHeading}) => {
 
                             {isAuthenticated ? (
                                 <Link to="/profile">
-                                <img src={`${backend_url}${user.avatar}`} alt="avatar" 
+                                <img src={`${backend_url}${user.avatar}`}   //express.static >> check backend/app.js
+                                    alt="avatar"
                                     className='w-[40px] h-[40px] rounded-full border border-primary-green'
                                 />
                                 </Link>
@@ -179,8 +185,14 @@ const Header = ({activeHeading}) => {
                             )}
                         </div>
                     </div>
-                </div> 
 
+                    {/* Cart Pop-up */}
+                    {
+                        openCart ? (
+                            <Cart setOpenCart={setOpenCart} />
+                        ) : null
+                    }
+                </div> 
             </div>
         </div>
     </>
