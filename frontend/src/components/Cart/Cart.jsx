@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {RxCross1} from 'react-icons/rx'
 import {IoBagHandleOutline} from 'react-icons/io5'
 import styles from '../../styles/styles'
@@ -42,12 +42,30 @@ const Cart = ({setOpenCart}) => {
                 {/* Cart Single Items */}
                 <br/>
                 <div className='w-full border-t'>
-
+                    {
+                        cartData && cartData.map((i, index)=> (
+                            <CartSingle key={index} data={i}/> 
+                        ))
+                    }
                 </div>
             </div>
         </div>
     </div>
   )
+}
+
+
+// CART SINGLE COMPONENT
+const CartSingle = ({data}) => {
+
+    const [value, setvalue] = useState(1)
+    return (
+        <div className='border-b p-4'>
+            <div className="w-full flex items-center">
+                
+            </div>
+        </div>
+    )
 }
 
 export default Cart
