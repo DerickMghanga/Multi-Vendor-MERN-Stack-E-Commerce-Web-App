@@ -10,7 +10,8 @@ import DropDown from './DropDown'
 import Navbar from './Navbar'
 import {useSelector} from 'react-redux'
 import { backend_url } from '../../server'
-import Cart from '../Cart/Cart.jsx'
+import Cart from '../Cart/Cart'
+import Wishlist from '../Wishlist/Wishlist'
 
 
 const Header = ({activeHeading}) => {
@@ -140,7 +141,9 @@ const Header = ({activeHeading}) => {
                 </div>
 
                 <div className='flex gap-1'>
-                    <div className={`${styles.normalFlex}`}>
+                    <div className={`${styles.normalFlex}`}
+                        onClick={() => setOpenWishList(true)}
+                    >
                         <div className='relative cursor-pointer mr-[15px]'>
                             <AiOutlineHeart size={28}
                                 className='text-white'
@@ -190,6 +193,13 @@ const Header = ({activeHeading}) => {
                     {
                         openCart ? (
                             <Cart setOpenCart={setOpenCart} />
+                        ) : null
+                    }
+
+                    {/* Wishlist Pop-up */}
+                    {
+                        openWishList ? (
+                            <Wishlist setOpenWishList={setOpenWishList} />
                         ) : null
                     }
                 </div> 

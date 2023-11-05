@@ -39,7 +39,7 @@ const Cart = ({setOpenCart}) => {
                 <div className={`${styles.normalFlex} p-4`}>
                     <IoBagHandleOutline size={25} />
 
-                    <h5 className='pl-2 text-[20px] font-[500]'> 3 items</h5>
+                    <h5 className='pl-2 text-[20px] font-[500]'>3 items added to Cart</h5>
                 </div>
 
                 {/* Cart Single Items */}
@@ -80,7 +80,7 @@ const CartSingle = ({data}) => {
                     <div className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[24px] h-[24px] ${styles.normalFlex} justify-center cursor-pointer`}
                         onClick={()=> setvalue(value + 1)}
                     >
-                        <HiPlus size={16} color="#fff" />
+                        <HiPlus size={16} color="#fff"/>
                     </div>
 
                     <span className='pl-2'>
@@ -90,7 +90,7 @@ const CartSingle = ({data}) => {
                     <div className={`bg-[#a7abb14f] rounded-full w-[24px] h-[24px] ${styles.normalFlex} justify-center cursor-pointer`}
                         onClick={()=> setvalue(value === 1? 1 : value - 1)}
                     >
-                        <HiOutlineMinus size={16} color="#7d879c" />
+                        <HiOutlineMinus size={16} color="#7d879c"/>
                     </div>
                 </div>
 
@@ -104,7 +104,7 @@ const CartSingle = ({data}) => {
                     <h4 className='font-bold text-[17px] pt-[3px] text-[#d02222] font-roboto'>${totalprice}</h4>
                 </div>
 
-                <RxCross1 size={22} color="#000" className='cursor-pointer' />
+                <RxCross1 size={22} color="#000" className='cursor-pointer'/>
             </div>
         </div>
     )
