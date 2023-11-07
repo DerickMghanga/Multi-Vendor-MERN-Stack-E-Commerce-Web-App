@@ -424,7 +424,7 @@ export const navItems = [
         },
         {
           public_id: "test",
-          url: "https://eratablet.com/wp-content/uploads/2022/08/H51ba6537405f4948972e293927673546u.jpg",
+          url: "https://image.kilimall.com/kenya/shop/store/goods/3952/2019/04/3952_06074487886641969_720.jpg.webp",
         },
       ],
       shop: {

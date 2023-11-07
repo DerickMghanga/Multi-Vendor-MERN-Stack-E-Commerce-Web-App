@@ -7,6 +7,7 @@ import styles from '../../styles/styles'
 import { Link } from 'react-router-dom'
 
 const Cart = ({setOpenCart}) => {
+    
     const cartData = [
         {
             name: "iPhone 14 pro max 256GB & 8GB RAM Silver Colour",
