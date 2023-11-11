@@ -28,6 +28,10 @@ code {
   @apply w-[125px] h-[40px] bg-gray-500 my-3 flex items-center justify-center rounded-xl cursor-pointer;
 }
 
+.btn-secondary {
+  @apply w-[180px] h-[40px] border-[1.5px] border-lime-600 font-semibold  text-lime-600 my-2 flex items-center justify-center rounded-xl cursor-pointer;
+}
+
 
 .sponsor-image {
   width: 150px;
