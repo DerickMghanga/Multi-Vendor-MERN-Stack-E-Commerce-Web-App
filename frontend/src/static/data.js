@@ -265,17 +265,17 @@ export const navItems = [
     {
       id: 1,
       category:"Computers and Laptops",
-      name: "MacBook pro M2 chipset 256gb ssd 8gb ram space-gray color with apple 1 year warranty",
+      name: "MacBook pro M2 chipset 512 gb ssd 8gb ram space-gray color with apple 1 year warranty",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://phonesstorekenya.com/wp-content/uploads/2022/07/MacBook-Pro-13-inch-M2-chip.jpg",
         },
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://phonesstorekenya.com/wp-content/uploads/2022/07/MacBook-Pro-13-inch-M2-chip-a-300x300.jpg",
         },
       ],
       shop: {
@@ -323,18 +323,18 @@ export const navItems = [
     },
     {
       id: 3,
-      category:"Computers and Laptop",
-      name: "MacBook pro M2 chipset 256gb ssd 8gb ram space gray color with apple 1 year warranty",
+      category:"Computers and Laptops",
+      name: "Apple iMac A1418 5th Gen Intel Core i5 8GB RAM 1TB HDD 21.5″ Glossy LED Backlit IPS Display Integrated High Definition Audio",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://zurimall.co.ke/wp-content/uploads/2022/12/Artboard-1@300x-100-2022-12-07T034841.806-1.jpg.webp",
         },
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://zurimall.co.ke/wp-content/uploads/2022/12/Artboard-1-copy@300x-100-77-1-1-100x100.jpg.webp",
         },
       ],
       shop: {
@@ -345,10 +345,10 @@ export const navItems = [
         },
         ratings: 4.2,
       },
-      price: 1099,
-      discount_price: 1049,
+      price: 2099,
+      discount_price: 2049,
       rating: 4,
-      total_sell: 75,
+      total_sell: 95,
       stock: 10,
     },
     {

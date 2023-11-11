@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
-import ProductDetails from '../components/Products/ProductDetails.jsx'
+import ProductDetails from '../components/Products/ProductDetails'
+import SuggestedProduct from '../components/Products/SuggestedProduct'
 import { useParams } from 'react-router-dom'
 import { productData } from '../static/data'
 
@@ -24,7 +25,13 @@ const ProductDetailsPage = () => {
   return (
     <div>
       <Header />
+      <div className='pb-8 bg-white'>
       <ProductDetails data={data}/>
+     
+      {
+        data && <SuggestedProduct data={data} />
+      }
+      </div>
       <Footer/>
     </div>
   )
