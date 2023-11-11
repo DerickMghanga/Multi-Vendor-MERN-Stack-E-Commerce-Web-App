@@ -264,8 +264,8 @@ export const navItems = [
   export const productData = [
     {
       id: 1,
-      category:"Computers and Laptops",
-      name: "MacBook pro M2 chipset 512 gb ssd 8gb ram space-gray color with apple 1 year warranty",
+      category: "Computers and Laptops",
+      name: "Macbook Pro A2141 Core i9 16GB 1TB SSD 4GB Radeon Pro",
       description:
         "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
       image_Url: [

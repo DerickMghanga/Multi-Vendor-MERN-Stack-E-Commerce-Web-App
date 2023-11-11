@@ -1,5 +1,16 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import {HomePage, SignUpPage, LoginPage,ActivationPage, ProductsPage,ProductDetailsPage, BestSellingPage, EventsPage, FAQPage} from './Routes.js';
+import {
+  HomePage,
+  SignUpPage,
+  LoginPage,
+  ActivationPage,
+  ProductsPage,
+  ProductDetailsPage,
+  BestSellingPage,
+  EventsPage,
+  FAQPage,
+  ProfilePage,
+} from './Routes.js';
 import { ToastContainer} from 'react-toastify';  //customised alert
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
@@ -32,6 +43,7 @@ function App() {
                 <Route path='/best-selling' element={<BestSellingPage/>} />
                 <Route path='/events' element={<EventsPage/>} />
                 <Route path='/faq' element={<FAQPage />} />
+                <Route path='/profile' element={<ProfilePage />} />
               </Routes>
 
               <ToastContainer
