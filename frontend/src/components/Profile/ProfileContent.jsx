@@ -3,6 +3,7 @@ import { backend_url } from '../../server'
 import { useSelector } from 'react-redux';
 import { AiOutlineCamera } from 'react-icons/ai';
 import styles from '../../styles/styles';
+import AllOrders from './AllOrders.jsx'
 
 const ProfileContent = ({ active }) => {
 
@@ -112,6 +113,15 @@ const ProfileContent = ({ active }) => {
             </div>
 
           </>
+        )
+      }
+
+      {/* Order Page */}
+      {
+        active === 2 && (
+          <div>
+            <AllOrders />
+          </div>
         )
       }
     </div>
