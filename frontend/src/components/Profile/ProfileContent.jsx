@@ -7,6 +7,7 @@ import AllOrders from './AllOrders'
 import AllRefundOrders from './AllRefundOrders'
 import TrackOrder from './TrackOrder'
 import PaymentMethod from './PaymentMethod'
+import Address from './Address.jsx'
 
 const ProfileContent = ({ active }) => {
 
@@ -26,7 +27,7 @@ const ProfileContent = ({ active }) => {
   return (
     <div className='w-full'>
 
-      {/* Profile Page */}
+      {/* Profile display */}
       {
         active === 1 && (
           <>
@@ -119,7 +120,7 @@ const ProfileContent = ({ active }) => {
         )
       }
 
-      {/* Order Page */}
+      {/* Order display */}
       {
         active === 2 && (
           <div>
@@ -128,7 +129,7 @@ const ProfileContent = ({ active }) => {
         )
       }
 
-      {/* Refunds Page */}
+      {/* Refunds display */}
       {
         active === 3 && (
           <div>
@@ -137,7 +138,7 @@ const ProfileContent = ({ active }) => {
         )
       }
 
-      {/* Track Order Page */}
+      {/* Track Order display */}
       {
         active === 5 && (
           <div>
@@ -146,11 +147,20 @@ const ProfileContent = ({ active }) => {
         )
       }
 
-      {/* Payment methods Page */}
+      {/* Payment methods display */}
       {
         active === 6 && (
           <div>
             <PaymentMethod />
+          </div>
+        )
+      }
+
+      {/* Address display */}
+      {
+        active === 7 && (
+          <div>
+            <Address />
           </div>
         )
       }
