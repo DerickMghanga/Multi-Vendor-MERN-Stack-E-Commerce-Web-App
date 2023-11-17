@@ -1,11 +1,11 @@
+import { Button } from '@material-ui/core';
+import { DataGrid } from '@material-ui/data-grid';
 import React from 'react'
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { DataGrid } from "@material-ui/data-grid";
-import { Button } from "@material-ui/core";
 
+const AllRefundOrders = () => {
 
-const AllOrders = () => {
     const orders = [
         {
             _id: "jhsagshwih8934353948dhfg",
@@ -71,7 +71,7 @@ const AllOrders = () => {
               <>
                 <Link to={`/user/order/${params.id}`}>
                   <Button>
-                    <AiOutlineArrowRight size={16} />
+                    <AiOutlineArrowRight size={20} />
                   </Button>
                 </Link>
               </>
@@ -79,16 +79,16 @@ const AllOrders = () => {
           },
         },
     ];
-
+    
     const row = [];
-    orders && orders.forEach((item)=> {
+    orders && orders.forEach((item) => {
         row.push({
             id: item._id,
-            itemsQty: item.orderItems.length,
+            itemsQty: item.cart?.length,
             total: "US$ " + item.totalPrice,
-            status: item.orderStatus,
-        })
-    })
+            status: item.status,
+        });
+    });
 
   return (
     <div className='pl-8 pt-1'>
@@ -103,4 +103,4 @@ const AllOrders = () => {
   )
 }
 
-export default AllOrders
+export default AllRefundOrders

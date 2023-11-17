@@ -3,7 +3,10 @@ import { backend_url } from '../../server'
 import { useSelector } from 'react-redux';
 import { AiOutlineCamera } from 'react-icons/ai';
 import styles from '../../styles/styles';
-import AllOrders from './AllOrders.jsx'
+import AllOrders from './AllOrders'
+import AllRefundOrders from './AllRefundOrders'
+import TrackOrder from './TrackOrder'
+import PaymentMethod from './PaymentMethod'
 
 const ProfileContent = ({ active }) => {
 
@@ -124,6 +127,34 @@ const ProfileContent = ({ active }) => {
           </div>
         )
       }
+
+      {/* Refunds Page */}
+      {
+        active === 3 && (
+          <div>
+            <AllRefundOrders />
+          </div>
+        )
+      }
+
+      {/* Track Order Page */}
+      {
+        active === 5 && (
+          <div>
+            <TrackOrder />
+          </div>
+        )
+      }
+
+      {/* Payment methods Page */}
+      {
+        active === 6 && (
+          <div>
+            <PaymentMethod />
+          </div>
+        )
+      }
+
     </div>
   )
 }
