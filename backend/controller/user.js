@@ -12,7 +12,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const { isAuthenticated } = require('../middleware/auth');   //check cookies in the token
 
-
+//create user account
 router.post('/create-user', upload.single("file"), async (req,res,next) => {
 
     try {
@@ -75,7 +75,6 @@ const createActivationToken = (user) => {
     return jwt.sign(user, process.env.ACTIVATION_SECRET, { expiresIn:'10min' });
 }
 
-
 //activate user from email sent with token
 router.post('/activation', catchAsyncErrors(async(req, res, next) => {
     try {
@@ -114,7 +113,6 @@ router.post('/activation', catchAsyncErrors(async(req, res, next) => {
     }
 }))
 
-
 //Login user
 router.post("/login-user", catchAsyncErrors(async(req, res, next) => {
     try {
@@ -143,7 +141,6 @@ router.post("/login-user", catchAsyncErrors(async(req, res, next) => {
     }
 }))
 
-
 //load user(authorisation to access hoemapage unless you login)
 router.get("/getuser", isAuthenticated, catchAsyncErrors(async(req, res, next) => {
     try {
@@ -159,6 +156,23 @@ router.get("/getuser", isAuthenticated, catchAsyncErrors(async(req, res, next) =
             user,
         });
 
+    } catch (error) {
+        return next(new ErrorHandler(error.message, 500));
+    }
+}))
+
+//Log-Out User(delete/remove the cookies)
+router.get("/logout", isAuthenticated, catchAsyncErrors(async(req, res, next) =>{
+    try {
+        res.cookie("token", null, {
+            expires: new Date(Date.now()),
+            httpOnly: true,
+        });
+
+        res.status(201).json({
+            success: true,
+            message: "Log Out Successful!",
+        });
     } catch (error) {
         return next(new ErrorHandler(error.message, 500));
     }

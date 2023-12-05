@@ -17,10 +17,11 @@ import { useEffect } from 'react';
 import Store from './redux/store.js';
 import { loadUser } from './redux/actions/user.js';
 import { useSelector } from 'react-redux';
+import ProtectedRoutes from './ProtectedRoutes.js';
 
 function App() {
 
-  const { loading } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
     // console.log({user});
     //if loading = true add a loader design
   useEffect(() => {
@@ -43,7 +44,11 @@ function App() {
                 <Route path='/best-selling' element={<BestSellingPage/>} />
                 <Route path='/events' element={<EventsPage/>} />
                 <Route path='/faq' element={<FAQPage />} />
-                <Route path='/profile' element={<ProfilePage />} />
+                <Route path='/profile' element={
+                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
+                    <ProfilePage />
+                  </ProtectedRoutes>
+                } />
               </Routes>
 
               <ToastContainer

@@ -5,12 +5,25 @@ import { TbAddressBook } from 'react-icons/tb';
 import { HiOutlineReceiptRefund, HiOutlineShoppingBag } from 'react-icons/hi';
 import { RxPerson } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom'
-
+import axios from "axios";
+import { server } from '../../server';
+import {toast} from "react-toastify";
 
 const ProfileSideBar = ({ active, setActive }) => {
 
     const navigate = useNavigate();
-    
+
+    const logOutHandler = () => {
+        axios.get(`${server}/user/logout`, {withCredentials: true})
+        .then((res)=> {
+            toast.success(res.data.message);
+            window.location.reload(true);
+            navigate("/login");
+        }).catch((err)=>{
+            console.log(err.response.data.message);
+        })
+    }
+
     return (
         <div className='w-full bg-white shadow-sm rounded-[10px] p-4'>
             <div className='flex items-center cursor-pointer w-full mb-8'
@@ -80,7 +93,7 @@ const ProfileSideBar = ({ active, setActive }) => {
             </div>
 
             <div className='flex items-center cursor-pointer w-full mb-8'
-                onClick={()=> setActive(8)}
+                onClick={()=> logOutHandler()}
             >
                 <AiOutlineLogout size={22} color={active === 8 ? "red":""} />
                 <span className={`pl-3 ${active === 8 ? "text-lime-600 font-semibold":""}`}>

@@ -40,7 +40,7 @@ const Header = ({activeHeading}) => {
 
     //active navBar after scroll
     window.addEventListener("scroll", () => {
-        if(window.scrollY > 55) {
+        if(window.scrollY > 50) {
             setActive(true);
         } else {
             setActive(false);
