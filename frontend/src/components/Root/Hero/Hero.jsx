@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <div className={`relative default-bg-img min-h-[70vh] md:min-h-[80vh] w-full bg-no-repeat ${styles.normalFlex}`}>
+    <div className={`relative default-bg-img min-h-[70vh] md:min-h-[80vh] w-full bg-no-repeat ${styles.normalFlex} mt-6 md:mt-0`}>
         <div className={`${styles.section} w-[90%] md:w-[60%]`}>
             <h1 className={`text-[35px] leading-[1.2] md:text-[60px] text-black font-bold capitalize`}>
                 Best Collection for <br/> home decoration
