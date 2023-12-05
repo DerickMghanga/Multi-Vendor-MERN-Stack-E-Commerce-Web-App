@@ -48,9 +48,9 @@ const ProfileContent = ({ active }) => {
 
             <div className="w-full px-5">
               <form onSubmit={handleSubmit} aria-required={true}>
-                <div className="w-full flex pb-3">
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                <div className="w-full block sm:flex pb-3">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       Full Name
                     </label>
                     <input type='text' required className={`${styles.input} !w-[95%] focus:outline-none`}
@@ -58,8 +58,8 @@ const ProfileContent = ({ active }) => {
                     />
                   </div>
 
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       Email Address
                     </label>
                     <input type='text' required className={`${styles.input} !w-[95%] focus:outline-none`}
@@ -68,9 +68,9 @@ const ProfileContent = ({ active }) => {
                   </div>
                 </div>
 
-                <div className="w-full flex pb-3">
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                <div className="w-full block sm:flex pb-3">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       Phone Number
                     </label>
                     <input type='tel' required className={`${styles.input} !w-[95%] focus:outline-none`}
@@ -78,8 +78,8 @@ const ProfileContent = ({ active }) => {
                     />
                   </div>
 
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       ZIP Code
                     </label>
                     <input type='text' required className={`${styles.input} !w-[95%] focus:outline-none`}
@@ -88,9 +88,9 @@ const ProfileContent = ({ active }) => {
                   </div>
                 </div>
 
-                <div className="w-full flex pb-3">
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                <div className="w-full block sm:flex pb-3">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       Address 1
                     </label>
                     <input type='address' required className={`${styles.input} !w-[95%] focus:outline-none`}
@@ -98,8 +98,8 @@ const ProfileContent = ({ active }) => {
                     />
                   </div>
 
-                  <div className='w-[50%]'>
-                    <label className="block pb-2 font-semibold">
+                  <div className='w-full sm:w-[50%]'>
+                    <label className="block pb-1 font-semibold">
                       Address 2
                     </label>
                     <input type='address' required className={`${styles.input} !w-[95%] focus:outline-none`}

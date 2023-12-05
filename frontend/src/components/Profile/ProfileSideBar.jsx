@@ -25,12 +25,12 @@ const ProfileSideBar = ({ active, setActive }) => {
     }
 
     return (
-        <div className='w-full bg-white shadow-sm rounded-[10px] p-4'>
+        <div className='w-full bg-white shadow-sm rounded-[10px] p-2 md:p-4'>
             <div className='flex items-center cursor-pointer w-full mb-8'
                 onClick={()=> setActive(1)}
             >
                 <RxPerson size={22} color={active === 1 ? "green":""} />
-                <span className={`pl-3 ${active === 1 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 1 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Profile
                 </span>
             </div>
@@ -39,7 +39,7 @@ const ProfileSideBar = ({ active, setActive }) => {
                 onClick={()=> setActive(2)}
             >
                 <HiOutlineShoppingBag size={22} color={active === 2 ? "green":""} />
-                <span className={`pl-3 ${active === 2 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 2 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Orders
                 </span>
             </div>
@@ -48,7 +48,7 @@ const ProfileSideBar = ({ active, setActive }) => {
                 onClick={()=> setActive(3)}
             >
                 <HiOutlineReceiptRefund size={22} color={active === 3 ? "green":""} />
-                <span className={`pl-3 ${active === 3 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 3 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Refunds
                 </span>
             </div>
@@ -60,7 +60,7 @@ const ProfileSideBar = ({ active, setActive }) => {
                 }}
             >
                 <AiOutlineMessage size={22} color={active === 4 ? "green":""} />
-                <span className={`pl-3 ${active === 4 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 4 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Inbox
                 </span>
             </div>
@@ -69,7 +69,7 @@ const ProfileSideBar = ({ active, setActive }) => {
                 onClick={()=> setActive(5)}
             >
                 <MdOutlineTrackChanges size={22} color={active === 5 ? "green":""} />
-                <span className={`pl-3 ${active === 5 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 5 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Track Order
                 </span>
             </div>
@@ -78,7 +78,7 @@ const ProfileSideBar = ({ active, setActive }) => {
                 onClick={()=> setActive(6)}
             >
                 <AiOutlineCreditCard size={22} color={active === 6 ? "green":""} />
-                <span className={`pl-3 ${active === 6 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 6 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Payment Methods
                 </span>
             </div>
@@ -87,16 +87,16 @@ const ProfileSideBar = ({ active, setActive }) => {
                 onClick={()=> setActive(7)}
             >
                 <TbAddressBook size={22} color={active === 7 ? "green":""} />
-                <span className={`pl-3 ${active === 7 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 7 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Address
                 </span>
             </div>
 
             <div className='flex items-center cursor-pointer w-full mb-8'
-                onClick={()=> logOutHandler()}
+                onClick={()=>{ logOutHandler(); setActive(8);}}
             >
                 <AiOutlineLogout size={22} color={active === 8 ? "red":""} />
-                <span className={`pl-3 ${active === 8 ? "text-lime-600 font-semibold":""}`}>
+                <span className={`pl-3 ${active === 8 ? "text-lime-600 font-semibold":""} hidden md:block`}>
                     Log out
                 </span>
             </div>
